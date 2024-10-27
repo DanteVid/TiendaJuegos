@@ -1,6 +1,6 @@
 package services;
 
-public class gestorVendedor {
+public class GestorVendedor {
 
     public static final int TAM_MAX_NOMBRE = 20;
     public static final int TAM_MAX_MEDIO = 10;

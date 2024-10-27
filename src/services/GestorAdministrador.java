@@ -5,11 +5,11 @@ import world.Administrador;
 import javax.swing.*;
 import java.io.RandomAccessFile;
 
-public class gestorAdministrador {
+public class GestorAdministrador {
 
     public static final int TAM_MAX_ID = 8;
     public static final int TAM_MAX_USERNAME = 15;
-    public static final int TAM_MAX_PASSWORD = 10;
+    public static final int TAM_MAX_PASSWORD = 15;
     public static final int TAM_REGISTRO = (TAM_MAX_ID + TAM_MAX_USERNAME + TAM_MAX_PASSWORD + 8 + 10 + 6); //8 del salario(double), 10 del estado, 6 de los bytes extras
     private String path = "data\\administrador.txt";
 
@@ -52,11 +52,11 @@ public class gestorAdministrador {
             if(administrador.getId().length()>TAM_MAX_ID){
                 JOptionPane.showMessageDialog(null, "ID Demasiado larga (Máx. 8 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
                 return;
-            }else if(administrador.getUsername().length()>TAM_MAX_ID){
+            }else if(administrador.getUsername().length()>TAM_MAX_USERNAME){
                 JOptionPane.showMessageDialog(null, "Nombre de usuario demasiado largo (Máx. 15 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
                 return;
-            } else if(administrador.getPassword().length()>TAM_MAX_ID){
-                JOptionPane.showMessageDialog(null, "Contraseña demasiado larga (Máx. 10 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
+            } else if(administrador.getPassword().length()>TAM_MAX_PASSWORD){
+                JOptionPane.showMessageDialog(null, "Contraseña demasiado larga (Máx. 15 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
 
