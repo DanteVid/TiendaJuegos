@@ -3,18 +3,40 @@ package world;
 public class Producto {
     public static String ESTADO_ACTIVO = "ACTIVO  ";
     public static String ESTADO_INACTIVO = "INACTIVO";
-    private double valor;
     private String id;
+    private String nombre;
+    private double valor;
     private int unidadesDisponibles;
+    private String estado;
 
-    public Producto(double valor, String id, int unidadesDisponibles) {
-        this.valor = valor;
+
+    public Producto( String id,String nombre, double valor, int unidadesDisponibles, String estado) {
         this.id = id;
+        this.nombre = nombre;
+        this.valor = valor;
         this.unidadesDisponibles = unidadesDisponibles;
+        this.estado = estado;
+
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public static String getEstadoInactivo() {
         return ESTADO_INACTIVO;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public static void setEstadoInactivo(String estadoInactivo) {
