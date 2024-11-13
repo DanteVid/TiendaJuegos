@@ -1,6 +1,10 @@
 package userInterface;
 
+import services.GestorAdministrador;
+import world.Administrador;
+
 import javax.swing.JOptionPane;
+import java.util.Arrays;
 
 /**
  *
@@ -117,8 +121,12 @@ public class VentanaLoginAdmin extends javax.swing.JFrame {
     }
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        if(false){
-
+        GestorAdministrador gestorAdministrador = new GestorAdministrador();
+        if(gestorAdministrador.verificarRegistro(jTextField1.getText(), new String(jPasswordField1.getPassword()))){
+            PanelAdmin pA = new PanelAdmin();
+            pA.setVisible(true);
+            pA.setLocationRelativeTo(null);
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.INFORMATION_MESSAGE);
         }

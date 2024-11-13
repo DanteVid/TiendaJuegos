@@ -1,9 +1,12 @@
 package services;
 
 import world.Administrador;
+import world.Empleado;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.io.RandomAccessFile;
+import java.util.Objects;
 
 public class GestorAdministrador {
 
@@ -65,6 +68,132 @@ public class GestorAdministrador {
             fileAdmin.writeUTF(setTamanioPassword(administrador.getPassword()));
             fileAdmin.writeDouble(administrador.getSalario());
             fileAdmin.writeUTF(administrador.getEstado());
+
+            fileAdmin.close();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void deleteAdmin(String idBorrar){
+        RandomAccessFile fileAdmin = null;
+        try {
+            fileAdmin = new RandomAccessFile(path, "rw");
+            int cont = 0;
+            idBorrar = setTamanioID(idBorrar);
+
+            while (true) {
+                String id = fileAdmin.readUTF();
+                fileAdmin.readUTF();
+                fileAdmin.readUTF();
+                fileAdmin.readDouble();
+                String estado = fileAdmin.readUTF();
+                cont++;
+
+                if (idBorrar.equals(id)) {
+                    fileAdmin.seek((TAM_REGISTRO * cont) - 10);
+                    fileAdmin.writeUTF(Empleado.ESTADO_INACTIVO);
+                    JOptionPane.showMessageDialog(null, "Empleado eliminado con éxito", null, JOptionPane.INFORMATION_MESSAGE);
+                    fileAdmin.close();
+                    return;
+                }
+                if(fileAdmin.getFilePointer()==fileAdmin.length()){
+                    break;
+                }
+            }
+
+            fileAdmin.close();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean verificarRegistro(String username, String password) {
+        RandomAccessFile fileAdmin = null;
+        String username2 = setTamanioUsername(username);
+        String password2 = setTamanioPassword(password);
+        String usernameLeido;
+        String passwordLeida;
+        String estado = "";
+        try {
+            fileAdmin = new RandomAccessFile(path, "rw");
+
+            while (true) {
+                fileAdmin.readUTF();
+                usernameLeido = fileAdmin.readUTF();
+                passwordLeida = fileAdmin.readUTF();
+                fileAdmin.readDouble();
+                estado = fileAdmin.readUTF();
+                if (((usernameLeido.equals(username2)) && (passwordLeida.equals(password2))) && estado.equals(Empleado.ESTADO_ACTIVO)) {
+                    return true;
+                }
+                if(fileAdmin.getFilePointer()== fileAdmin.length()){
+                    break;
+                }
+            }
+
+            fileAdmin.close();
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean buscarAdmin(String id) {
+        RandomAccessFile fileAdmin = null;
+        id = setTamanioID(id);
+        String idLeida;
+        String estado = "";
+        try {
+            fileAdmin = new RandomAccessFile(path, "rw");
+
+            while (true) {
+                idLeida = fileAdmin.readUTF();
+                String nombre = fileAdmin.readUTF();
+                fileAdmin.readUTF();
+                double salario = fileAdmin.readDouble();
+                estado = fileAdmin.readUTF();
+                if (idLeida.equals(id) && estado.equals(Empleado.ESTADO_ACTIVO)) {
+                    JOptionPane.showMessageDialog(null, ("Nombre: "+nombre+"\n Salario: "+salario+"\n Rol: Administrador"));
+                    fileAdmin.close();
+                    return true;
+                }
+                if(fileAdmin.getFilePointer()== fileAdmin.length()){
+                    break;
+                }
+            }
+
+            fileAdmin.close();
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void subirDatosATabla(DefaultTableModel modelo){
+        RandomAccessFile fileAdmin = null;
+        try {
+            fileAdmin = new RandomAccessFile(path, "rw");
+
+            while(true){
+                String id = fileAdmin.readUTF();
+                String nombre = fileAdmin.readUTF();
+                fileAdmin.readUTF(); //Lee la contraseña pero la pasa de largo
+                double salario = fileAdmin.readDouble();
+                String estado = fileAdmin.readUTF();
+
+                if(estado.equals(Empleado.ESTADO_ACTIVO)){
+                    modelo.addRow(new Object[]{id, nombre, salario, "ADMINISTRADOR"});
+                }
+
+                if(fileAdmin.getFilePointer()== fileAdmin.length()){
+                    break;
+                }
+            }
 
             fileAdmin.close();
 
