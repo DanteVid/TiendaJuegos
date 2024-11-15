@@ -10,12 +10,12 @@ public class Producto {
     private String estado;
 
 
-    public Producto( String id,String nombre, double valor, int unidadesDisponibles, String estado) {
+    public Producto( String id,String nombre, double valor, int unidadesDisponibles) {
         this.id = id;
         this.nombre = nombre;
         this.valor = valor;
         this.unidadesDisponibles = unidadesDisponibles;
-        this.estado = estado;
+        this.estado = ESTADO_ACTIVO;
 
     }
 
