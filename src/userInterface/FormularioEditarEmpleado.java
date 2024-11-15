@@ -9,6 +9,7 @@ import services.GestorVendedor;
  */
 public class FormularioEditarEmpleado extends javax.swing.JFrame {
     String rolElegido = "";
+    String idSeleccionada = "";
 
     public FormularioEditarEmpleado(String id, String nombre, double salario, String rol) {
         initComponents();
@@ -17,6 +18,8 @@ public class FormularioEditarEmpleado extends javax.swing.JFrame {
         nombreField.setText(nombre);
         salarioField.setText(String.valueOf(salario));
         rolElegido = rol;
+
+        idSeleccionada = id;
     }
 
 
@@ -117,9 +120,10 @@ public class FormularioEditarEmpleado extends javax.swing.JFrame {
 
         if(rolElegido.equals("ADMINISTRADOR")){
             GestorAdministrador gestorAdmin = new GestorAdministrador();
-
+            gestorAdmin.editarRegistro(idSeleccionada, id, nombre, salario);
         } else if (rolElegido.equals("VENDEDOR")) {
             GestorVendedor gestorVendedor = new GestorVendedor();
+            gestorVendedor.editarRegistro(idSeleccionada, id, nombre, salario);
         }
     }
 

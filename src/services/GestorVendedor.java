@@ -141,6 +141,52 @@ public class GestorVendedor {
         }
     }
 
+    public void editarRegistro(String idSeleccionada, String idNueva, String nombreNuevo, double salarioNuevo) {
+        RandomAccessFile fileSeller = null;
+
+        if (idNueva.length() > TAM_MAX_ID) {
+            JOptionPane.showMessageDialog(null, "ID demasiado larga (Máx. 8 caracteres)", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (nombreNuevo.length() > TAM_MAX_USERNAME) {
+            JOptionPane.showMessageDialog(null, "Nombre demasiado largo (Máx. 15 caracteres)", "Error", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try {
+            fileSeller = new RandomAccessFile(path, "rw");
+            String idLeida = "";
+            String passwordLeida = "";
+            String estadoLeido = "";
+
+            while (true) {
+                idLeida = fileSeller.readUTF();
+                fileSeller.readUTF();
+                passwordLeida = fileSeller.readUTF();
+                fileSeller.readDouble();
+                estadoLeido = fileSeller.readUTF();
+
+                if ((idLeida.equals(idSeleccionada)) && (estadoLeido.equals(Empleado.ESTADO_ACTIVO))) {
+
+                    fileSeller.seek(fileSeller.getFilePointer() - TAM_REGISTRO);
+
+                    fileSeller.writeUTF(setTamanioID(idNueva));
+                    fileSeller.writeUTF(setTamanioUsername(nombreNuevo));
+                    fileSeller.writeUTF(passwordLeida);
+                    fileSeller.writeDouble(salarioNuevo);
+                    fileSeller.writeUTF(estadoLeido);
+
+                    JOptionPane.showMessageDialog(null, "Cambio exitoso", null, JOptionPane.INFORMATION_MESSAGE);
+                    break;
+                }
+            }
+
+            fileSeller.close();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public boolean verificarRegistro(String username, String password) {
         RandomAccessFile fileSeller = null;
         String username2 = setTamanioUsername(username);
