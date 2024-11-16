@@ -156,7 +156,7 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
         Vendedor vendedor = new Vendedor(nuevoID, nuevoNombre, nuevoPassword, nuevoSalario, Empleado.ESTADO_ACTIVO);
 
         gestor.addSeller(vendedor);
-        JOptionPane.showMessageDialog(null, "Vendedor registrado exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
+
     }
 
     private void buttonAnadirAdminActionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +170,6 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
         Administrador admin = new Administrador(nuevoID, nuevoNombre, nuevoPassword, nuevoSalario, Empleado.ESTADO_ACTIVO);
 
         gestor.addAdmin(admin);
-
-        JOptionPane.showMessageDialog(null, "Administrador registrado exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

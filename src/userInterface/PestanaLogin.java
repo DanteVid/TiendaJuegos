@@ -1,4 +1,10 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package userInterface;
+
+import javax.swing.*;
 
 /**
  *
@@ -7,10 +13,12 @@ package userInterface;
 public class PestanaLogin extends javax.swing.JFrame {
 
     /**
-     * Creates new form userInterface.PestañaLogin
+     * Creates new form PestañaLogin
      */
     public PestanaLogin() {
         initComponents();
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,11 +38,11 @@ public class PestanaLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         adminLoginButton = new javax.swing.JButton();
         sellerLoginButton = new javax.swing.JButton();
+        salirBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
         setBackground(new java.awt.Color(0, 204, 204));
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(800, 500));
@@ -42,46 +50,30 @@ public class PestanaLogin extends javax.swing.JFrame {
 
         Right.setBackground(new java.awt.Color(0, 102, 102));
         Right.setPreferredSize(new java.awt.Dimension(400, 500));
+        Right.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Harlow Solid Italic", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Juegos Misericordia");
+        Right.add(jLabel2);
+        jLabel2.setBounds(43, 302, 299, 57);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/output-onlinepngtools(1).png"))); // NOI18N
-
-        javax.swing.GroupLayout RightLayout = new javax.swing.GroupLayout(Right);
-        Right.setLayout(RightLayout);
-        RightLayout.setHorizontalGroup(
-                RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(RightLayout.createSequentialGroup()
-                                .addGroup(RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(RightLayout.createSequentialGroup()
-                                                .addGap(43, 43, 43)
-                                                .addComponent(jLabel2))
-                                        .addGroup(RightLayout.createSequentialGroup()
-                                                .addGap(117, 117, 117)
-                                                .addComponent(jLabel4)))
-                                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        RightLayout.setVerticalGroup(
-                RightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RightLayout.createSequentialGroup()
-                                .addContainerGap(119, Short.MAX_VALUE)
-                                .addComponent(jLabel4)
-                                .addGap(33, 33, 33)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(141, 141, 141))
-        );
+        Right.add(jLabel4);
+        jLabel4.setBounds(117, 119, 150, 150);
 
         jPanel3.add(Right);
         Right.setBounds(0, 0, 400, 500);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMinimumSize(new java.awt.Dimension(400, 500));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Bienvenido");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(119, 36, 160, 41);
 
         adminLoginButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         adminLoginButton.setText("Inicio de sesión Administradores");
@@ -90,6 +82,8 @@ public class PestanaLogin extends javax.swing.JFrame {
                 adminLoginButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(adminLoginButton);
+        adminLoginButton.setBounds(36, 173, 321, 58);
 
         sellerLoginButton.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         sellerLoginButton.setText("Inicio de sesión Vendedores");
@@ -98,34 +92,17 @@ public class PestanaLogin extends javax.swing.JFrame {
                 sellerLoginButtonActionPerformed(evt);
             }
         });
+        jPanel1.add(sellerLoginButton);
+        sellerLoginButton.setBounds(36, 296, 321, 58);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(36, 36, 36)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(sellerLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(adminLoginButton)))
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(119, 119, 119)
-                                                .addComponent(jLabel1)))
-                                .addGap(0, 43, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(jLabel1)
-                                .addGap(96, 96, 96)
-                                .addComponent(adminLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65)
-                                .addComponent(sellerLoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(146, Short.MAX_VALUE))
-        );
+        salirBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icono/iconoSalir.png"))); // NOI18N
+        salirBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(salirBtn);
+        salirBtn.setBounds(301, 406, 70, 70);
 
         jPanel3.add(jPanel1);
         jPanel1.setBounds(400, 0, 400, 500);
@@ -134,9 +111,7 @@ public class PestanaLogin extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,40 +137,16 @@ public class PestanaLogin extends javax.swing.JFrame {
         this.dispose();
     }
 
+    private void salirBtnActionPerformed(java.awt.event.ActionEvent evt) {
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea salir de la aplicación?", null, JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION){
+            this.dispose();
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PestanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PestanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PestanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PestanaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PestanaLogin().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify
     private javax.swing.JPanel Right;
@@ -205,6 +156,7 @@ public class PestanaLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton salirBtn;
     private javax.swing.JButton sellerLoginButton;
     // End of variables declaration
 }

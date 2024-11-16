@@ -5,6 +5,8 @@ package userInterface;
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+import userInterface.gestionProductos.PanelGestionInventario;
+
 import javax.swing.*;
 
 /**
@@ -112,7 +114,8 @@ public class PanelAdmin extends javax.swing.JFrame {
     }
 
     private void buttonGestionInventarioActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        PanelGestionInventario panelGestionInventario = new PanelGestionInventario();
+        this.dispose();
     }
 
     /**

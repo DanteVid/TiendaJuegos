@@ -256,7 +256,7 @@ public class PanelGestionEmpleados extends javax.swing.JFrame {
             String id = idValue.toString();
             String rol = rolValue.toString();
 
-            int confirmacion = JOptionPane.showConfirmDialog(null, ("¿Está seguro de que desea eliminar al empleado de id "+ id + "?"), "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
+            int confirmacion = JOptionPane.showConfirmDialog(null, ("¿Está seguro de que desea eliminar al empleado de id "+ id + "?"), null, JOptionPane.YES_NO_OPTION);
             if (confirmacion == JOptionPane.YES_OPTION) {
                 if(rol.equals("ADMINISTRADOR")){
                     gestorAdministrador.deleteAdmin(id);
@@ -270,7 +270,7 @@ public class PanelGestionEmpleados extends javax.swing.JFrame {
             mostrarDatos();
 
         } else {
-            JOptionPane.showMessageDialog(null, "No ha seleccionado ningún empleado", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Por favor seleccione el empleado a eliminar", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
     }
 
@@ -278,10 +278,8 @@ public class PanelGestionEmpleados extends javax.swing.JFrame {
         GestorAdministrador gestAdmin = new GestorAdministrador();
         GestorVendedor gestVen = new GestorVendedor();
         String id = JOptionPane.showInputDialog("Ingrese la ID del empleado a buscar");
-        if (gestAdmin.buscarAdmin(id) || gestVen.buscarSeller(id)) {
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Empleado no encontrado", "Error", JOptionPane.INFORMATION_MESSAGE);
+        if (!gestAdmin.buscarAdmin(id)) {
+            gestVen.buscarSeller(id);
         }
     }
 

@@ -70,6 +70,8 @@ public class GestorVendedor {
 
             fileSeller.close();
 
+            JOptionPane.showMessageDialog(null, "Vendedor registrado exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -134,6 +136,7 @@ public class GestorVendedor {
             }
 
             fileSeller.close();
+            JOptionPane.showMessageDialog(null, "Empleado no encontrado", "Error", JOptionPane.WARNING_MESSAGE);
             return false;
 
         } catch (Exception e) {

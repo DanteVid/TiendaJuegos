@@ -56,13 +56,13 @@ public class GestorAdministrador {
             fileAdmin.seek(fileAdmin.length());
 
             if (administrador.getId().length() > TAM_MAX_ID) {
-                JOptionPane.showMessageDialog(null, "ID Demasiado larga (Máx. 8 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "ID Demasiado larga (Máx. 8 caracteres)", "Error", JOptionPane.WARNING_MESSAGE);
                 return;
             } else if (administrador.getUsername().length() > TAM_MAX_USERNAME) {
-                JOptionPane.showMessageDialog(null, "Nombre de usuario demasiado largo (Máx. 15 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Nombre de usuario demasiado largo (Máx. 15 caracteres)", "Error", JOptionPane.WARNING_MESSAGE);
                 return;
             } else if (administrador.getPassword().length() > TAM_MAX_PASSWORD) {
-                JOptionPane.showMessageDialog(null, "Contraseña demasiado larga (Máx. 15 caracteres)", "Error", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Contraseña demasiado larga (Máx. 15 caracteres)", "Error", JOptionPane.WARNING_MESSAGE);
                 return;
             }
 
@@ -73,6 +73,8 @@ public class GestorAdministrador {
             fileAdmin.writeUTF(administrador.getEstado());
 
             fileAdmin.close();
+
+            JOptionPane.showMessageDialog(null, "Administrador registrado exitosamente", null, JOptionPane.INFORMATION_MESSAGE);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -94,7 +96,7 @@ public class GestorAdministrador {
                 String estado = fileAdmin.readUTF();
                 cont++;
 
-                if (idBorrar.equals(id)) {
+                if (idBorrar.equals(id) && estado.equals(Empleado.ESTADO_ACTIVO)) {
                     fileAdmin.seek((TAM_REGISTRO * cont) - 10);
                     fileAdmin.writeUTF(Empleado.ESTADO_INACTIVO);
                     JOptionPane.showMessageDialog(null, "Empleado eliminado con éxito", null, JOptionPane.INFORMATION_MESSAGE);

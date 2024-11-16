@@ -1,6 +1,5 @@
 package userInterface;
 
-import javafx.scene.layout.Pane;
 import services.GestorAdministrador;
 import services.GestorVendedor;
 
