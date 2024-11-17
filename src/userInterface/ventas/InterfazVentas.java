@@ -44,15 +44,13 @@ public class InterfazVentas extends javax.swing.JFrame {
         GestorVentas gestor = new GestorVentas();
         numField.setText(String.valueOf(gestor.generarNumeroVenta()));
 
-        facturaTextArea.setText("****************************************\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "************FACTURA DE VENTA************\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "****************************************\n");
+        facturaTextArea.setText("**********************************************\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "***************FACTURA DE VENTA***************\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n");
         facturaTextArea.setText(facturaTextArea.getText() + "FECHA Y HORA: " + fechaField.getText() + "\n");
         facturaTextArea.setText(facturaTextArea.getText() + "VENDEDOR: " + sellerField1.getText() + "\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "NUMERO DE FACTURA : " + numField.getText() + "\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "****************************************\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "***************DESCRIPCIÓN**************\n");
-        facturaTextArea.setText(facturaTextArea.getText() + "****************************************\n\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "NUMERO DE FACTURA : " + numField.getText() + "\n\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "******************DESCRIPCIÓN*****************\n\n");
     }
 
     /**
@@ -92,7 +90,6 @@ public class InterfazVentas extends javax.swing.JFrame {
         valorCambioLabel = new javax.swing.JLabel();
         efectivoBtn = new javax.swing.JButton();
         volverBtn = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         tarjetaDebitoBtn = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -106,6 +103,8 @@ public class InterfazVentas extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         numField = new javax.swing.JTextField();
         registrarClienteBtn = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         facturaTextArea = new javax.swing.JTextArea();
@@ -130,7 +129,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(imprimirFacturaBtn);
-        imprimirFacturaBtn.setBounds(190, 570, 140, 30);
+        imprimirFacturaBtn.setBounds(180, 590, 140, 30);
 
         nuevaVentaBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         nuevaVentaBtn.setText("Nueva Venta");
@@ -140,7 +139,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(nuevaVentaBtn);
-        nuevaVentaBtn.setBounds(340, 570, 130, 30);
+        nuevaVentaBtn.setBounds(340, 590, 130, 30);
 
         terminarVentaBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         terminarVentaBtn.setText("Finalizar Venta");
@@ -150,7 +149,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(terminarVentaBtn);
-        terminarVentaBtn.setBounds(40, 570, 140, 30);
+        terminarVentaBtn.setBounds(20, 590, 140, 30);
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
@@ -158,7 +157,7 @@ public class InterfazVentas extends javax.swing.JFrame {
         jPanel2.add(jLabel2);
         jLabel2.setBounds(120, 670, 270, 24);
         jPanel2.add(celularField);
-        celularField.setBounds(310, 330, 150, 30);
+        celularField.setBounds(310, 450, 150, 30);
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -170,29 +169,29 @@ public class InterfazVentas extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("INFORMACIÓN DE VENTA");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(140, 10, 230, 24);
+        jLabel4.setBounds(130, 10, 230, 24);
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Celular:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(250, 330, 60, 30);
+        jLabel5.setBounds(250, 450, 60, 30);
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Correo:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(30, 370, 50, 30);
+        jLabel6.setBounds(30, 490, 50, 30);
         jPanel2.add(correoField);
-        correoField.setBounds(100, 370, 360, 30);
+        correoField.setBounds(90, 490, 370, 30);
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("¿Cliente ya registrado? Haga click aquí:");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(80, 300, 280, 18);
+        jLabel7.setBounds(90, 420, 260, 18);
         jPanel2.add(cedulaField);
-        cedulaField.setBounds(100, 330, 140, 30);
+        cedulaField.setBounds(90, 450, 150, 30);
 
         agregarProductoBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         agregarProductoBtn.setText("Agregar");
@@ -202,13 +201,13 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(agregarProductoBtn);
-        agregarProductoBtn.setBounds(190, 190, 140, 28);
+        agregarProductoBtn.setBounds(170, 190, 140, 28);
 
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Cedula:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(30, 330, 60, 30);
+        jLabel8.setBounds(30, 450, 60, 30);
 
         clienteRegistradoBtn.setText("X");
         clienteRegistradoBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +216,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(clienteRegistradoBtn);
-        clienteRegistradoBtn.setBounds(350, 300, 41, 20);
+        clienteRegistradoBtn.setBounds(350, 420, 41, 20);
 
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
@@ -238,13 +237,13 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(tarjetaCreditoBtn);
-        tarjetaCreditoBtn.setBounds(340, 490, 130, 28);
+        tarjetaCreditoBtn.setBounds(340, 310, 130, 28);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("$");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(360, 530, 10, 24);
+        jLabel10.setBounds(350, 350, 10, 24);
 
         jLabel11.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
@@ -253,6 +252,11 @@ public class InterfazVentas extends javax.swing.JFrame {
         jLabel11.setBounds(30, 150, 60, 30);
 
         cantidadField.setForeground(new java.awt.Color(0, 0, 0));
+        cantidadField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cantidadFieldActionPerformed(evt);
+            }
+        });
         jPanel2.add(cantidadField);
         cantidadField.setBounds(350, 150, 100, 30);
 
@@ -260,19 +264,19 @@ public class InterfazVentas extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Escaneo de productos");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(160, 120, 200, 24);
+        jLabel12.setBounds(140, 120, 200, 24);
 
         jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("CAMBIO:");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(140, 530, 90, 24);
+        jLabel13.setBounds(140, 350, 90, 24);
 
         valorCambioLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         valorCambioLabel.setForeground(new java.awt.Color(0, 0, 0));
         valorCambioLabel.setText("0");
         jPanel2.add(valorCambioLabel);
-        valorCambioLabel.setBounds(240, 530, 110, 24);
+        valorCambioLabel.setBounds(230, 350, 110, 24);
 
         efectivoBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         efectivoBtn.setText("Efectivo");
@@ -282,7 +286,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(efectivoBtn);
-        efectivoBtn.setBounds(50, 490, 120, 28);
+        efectivoBtn.setBounds(30, 310, 130, 28);
 
         volverBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         volverBtn.setText("VOLVER");
@@ -292,19 +296,13 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(volverBtn);
-        volverBtn.setBounds(260, 630, 160, 40);
-
-        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("METODO DE PAGO");
-        jPanel2.add(jLabel15);
-        jLabel15.setBounds(180, 450, 170, 24);
+        volverBtn.setBounds(260, 640, 160, 40);
 
         jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("--------------------------------------------");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(120, 600, 270, 24);
+        jLabel16.setBounds(120, 560, 270, 24);
 
         tarjetaDebitoBtn.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         tarjetaDebitoBtn.setText("Tarjeta Debito");
@@ -314,7 +312,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(tarjetaDebitoBtn);
-        tarjetaDebitoBtn.setBounds(190, 490, 130, 28);
+        tarjetaDebitoBtn.setBounds(180, 310, 140, 28);
 
         jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
@@ -342,7 +340,7 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cancelarVentaBtn);
-        cancelarVentaBtn.setBounds(80, 630, 160, 40);
+        cancelarVentaBtn.setBounds(80, 640, 160, 40);
 
         codigoField.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(codigoField);
@@ -352,7 +350,7 @@ public class InterfazVentas extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("INFORMACIÓN DEL CLIENTE");
         jPanel2.add(jLabel18);
-        jLabel18.setBounds(130, 270, 260, 24);
+        jLabel18.setBounds(130, 390, 280, 24);
 
         jLabel19.setFont(new java.awt.Font("Dialog", 1, 13)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
@@ -384,10 +382,22 @@ public class InterfazVentas extends javax.swing.JFrame {
             }
         });
         jPanel2.add(registrarClienteBtn);
-        registrarClienteBtn.setBounds(190, 410, 140, 28);
+        registrarClienteBtn.setBounds(180, 530, 140, 28);
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("METODO DE PAGO");
+        jPanel2.add(jLabel15);
+        jLabel15.setBounds(170, 280, 170, 24);
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel21.setText("--------------------------------------------");
+        jPanel2.add(jLabel21);
+        jLabel21.setBounds(120, 620, 270, 24);
 
         jPanel1.add(jPanel2);
-        jPanel2.setBounds(0, 0, 500, 700);
+        jPanel2.setBounds(0, 0, 490, 700);
 
         jPanel3.setLayout(null);
 
@@ -397,10 +407,10 @@ public class InterfazVentas extends javax.swing.JFrame {
         jScrollPane2.setViewportView(facturaTextArea);
 
         jPanel3.add(jScrollPane2);
-        jScrollPane2.setBounds(20, 20, 460, 660);
+        jScrollPane2.setBounds(10, 20, 490, 660);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(500, 0, 500, 700);
+        jPanel3.setBounds(490, 0, 510, 700);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -418,6 +428,10 @@ public class InterfazVentas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>
 
+    private void cantidadFieldActionPerformed(ActionEvent evt) {
+    }
+
+
     private void agregarProductoBtnActionPerformed(java.awt.event.ActionEvent evt) {
         GestorProductos gestor = new GestorProductos();
         Producto producto = gestor.searchProducto(codigoField.getText());
@@ -431,10 +445,14 @@ public class InterfazVentas extends javax.swing.JFrame {
             facturaTextArea.setText(facturaTextArea.getText() + producto.getNombre() + "\n");
             facturaTextArea.setText(facturaTextArea.getText() + cantidadField.getText() + " " + producto.getValorUnitario() + " " + (producto.getValorUnitario()*Integer.parseInt(cantidadField.getText())) + "\n\n");
 
+            double valorArticulos = (producto.getValorUnitario() * Integer.parseInt(cantidadField.getText()));
+            double valorTotal = Double.parseDouble(valorTransaccionLabel.getText());
+            valorTotal += valorArticulos;
+            valorTransaccionLabel.setText(String.valueOf(valorTotal));
+
             codigoField.setText("");
             cantidadField.setText("");
 
-            double valorArticulos = (producto.getValorUnitario()*Integer.parseInt(cantidadField.getText()));
         } else {
             JOptionPane.showMessageDialog(null, "No hay suficientes unidades disponibles", "Error", JOptionPane.WARNING_MESSAGE);
         }
@@ -465,7 +483,11 @@ public class InterfazVentas extends javax.swing.JFrame {
             celularField.setText(cliente.getCelular());
             correoField.setText(cliente.getCorreo());
 
-
+            facturaTextArea.setText(facturaTextArea.getText() + "**************INFORMACION CLIENTE*************\n");
+            facturaTextArea.setText(facturaTextArea.getText() + "CEDULA: " + cedulaField.getText() + "\n");
+            facturaTextArea.setText(facturaTextArea.getText() + "CELULAR: " + celularField.getText() + "\n");
+            facturaTextArea.setText(facturaTextArea.getText() + "CORREO: " + correoField.getText() + "\n");
+            facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n");
         }
     }
 
@@ -480,16 +502,32 @@ public class InterfazVentas extends javax.swing.JFrame {
         int passwordApproved = JOptionPane.showConfirmDialog(null, pf, "Ingrese su PIN", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (passwordApproved == JOptionPane.OK_OPTION) {
             JOptionPane.showMessageDialog(null, "Transaccion Aprobada");
+            facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n");
+            facturaTextArea.setText(facturaTextArea.getText()+ "VALOR ARTICULOS = " + valorTransaccionLabel.getText() + "\n");
+            facturaTextArea.setText(facturaTextArea.getText()+ "TARJETA DEBITO = " + valorTransaccionLabel.getText() + "\n");
+            facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n\n");
         }
     }
 
     private void terminarVentaBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        GestorProductos gestor = new GestorProductos();
+        int i= 0;
+        for(Producto producto : productosAVender){
+            gestor.venderProducto(cantidadesAVender.get(i), producto);
+            i++;
+        }
+        JOptionPane.showMessageDialog(null, "Venta realizada con éxito", null, JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void efectivoBtnActionPerformed(java.awt.event.ActionEvent evt) {
         double cantidad = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad de efectivo:"));
         valorCambioLabel.setText(String.valueOf(cantidad - Double.parseDouble(valorTransaccionLabel.getText())));
+
+        facturaTextArea.setText(facturaTextArea.getText() + "********************************************\n");
+        facturaTextArea.setText(facturaTextArea.getText()+ "VALOR ARTICULOS = " + valorTransaccionLabel.getText() + "\n");
+        facturaTextArea.setText(facturaTextArea.getText()+ "EFECTIVO = " + cantidad + "\n");
+        facturaTextArea.setText(facturaTextArea.getText()+ "CAMBIO = " + valorCambioLabel.getText() + "\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "********************************************\n\n");
     }
 
     private void tarjetaCreditoBtnActionPerformed(ActionEvent evt) {
@@ -502,6 +540,12 @@ public class InterfazVentas extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Transaccion Cancelada", "Error", JOptionPane.WARNING_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, "Transaccion Aprobada");
+
+                facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n");
+                facturaTextArea.setText(facturaTextArea.getText()+ "VALOR ARTICULOS = " + valorTransaccionLabel.getText() + "\n");
+                facturaTextArea.setText(facturaTextArea.getText()+ "TARJETA CREDITO = " + valorTransaccionLabel.getText() + "\n");
+                facturaTextArea.setText(facturaTextArea.getText()+ "CUOTAS = " + numeroCuotas + "\n");
+                facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n\n");
             }
         }
     }
@@ -514,6 +558,12 @@ public class InterfazVentas extends javax.swing.JFrame {
         Cliente cliente = new Cliente(cedula, celular, correo);
         GestorClientes gestor = new GestorClientes();
         gestor.addCliente(cliente);
+
+        facturaTextArea.setText(facturaTextArea.getText() + "**************INFORMACION CLIENTE*************\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "CEDULA: " + cedulaField.getText() + "\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "CELULAR: " + celularField.getText() + "\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "CORREO: " + correoField.getText() + "\n");
+        facturaTextArea.setText(facturaTextArea.getText() + "**********************************************\n");
     }
 
     private void cancelarVentaBtnActionPerformed(java.awt.event.ActionEvent evt) {
@@ -550,6 +600,7 @@ public class InterfazVentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

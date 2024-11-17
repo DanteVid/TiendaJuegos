@@ -297,4 +297,33 @@ public class GestorProductos {
             throw new RuntimeException(e);
         }
     }
+
+    public void venderProducto(int cantidad, Producto producto){
+        RandomAccessFile fileProducto = null;
+
+        try {
+            fileProducto = new RandomAccessFile(path, "rw");
+            String codigo = producto.getCodigo();
+            int stockActual = 0;
+            while(true){
+                String codigoLeido = fileProducto.readUTF();
+                fileProducto.readUTF();
+                fileProducto.readDouble();
+                stockActual = fileProducto.readInt();
+                String estado = fileProducto.readUTF();
+
+                if (codigoLeido.trim().equals(codigo.trim()) && estado.equals(Producto.ESTADO_ACTIVO)) {
+                    stockActual -= cantidad;
+                    fileProducto.seek(fileProducto.getFilePointer()-10-4);
+                    fileProducto.writeInt(stockActual);
+                    break;
+                }
+            }
+
+            fileProducto.close();
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
