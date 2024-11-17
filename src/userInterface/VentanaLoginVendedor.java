@@ -1,6 +1,10 @@
 package userInterface;
 
+import services.GestorAdministrador;
+import services.GestorVendedor;
+
 import javax.swing.JOptionPane;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -120,9 +124,11 @@ public class VentanaLoginVendedor extends javax.swing.JFrame {
         this.dispose();
     }
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        if(false){
-
+    private void loginButtonActionPerformed(ActionEvent evt) {
+        GestorVendedor gestor = new GestorVendedor();
+        if(gestor.verificarRegistro(jTextField1.getText(), new String(jPasswordField1.getPassword()))){
+            PanelVendedor pV = new PanelVendedor(jTextField1.getText());
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos", "Error", JOptionPane.INFORMATION_MESSAGE);
         }

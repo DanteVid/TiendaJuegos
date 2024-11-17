@@ -9,8 +9,9 @@ import services.GestorVendedor;
 public class FormularioEditarEmpleado extends javax.swing.JFrame {
     String rolElegido = "";
     String idSeleccionada = "";
+    PanelGestionEmpleados panelGestion;
 
-    public FormularioEditarEmpleado(String id, String nombre, double salario, String rol) {
+    public FormularioEditarEmpleado(String id, String nombre, double salario, String rol, PanelGestionEmpleados panel) {
         initComponents();
 
         idField.setText(id);
@@ -18,7 +19,11 @@ public class FormularioEditarEmpleado extends javax.swing.JFrame {
         salarioField.setText(String.valueOf(salario));
         rolElegido = rol;
 
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+
         idSeleccionada = id;
+        panelGestion = panel;
     }
 
 
@@ -124,12 +129,13 @@ public class FormularioEditarEmpleado extends javax.swing.JFrame {
             GestorVendedor gestorVendedor = new GestorVendedor();
             gestorVendedor.editarRegistro(idSeleccionada, id, nombre, salario);
         }
+
+        panelGestion.limpiarDatos();
+        panelGestion.mostrarDatos();
+        this.dispose();
     }
 
     private void volverBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        PanelGestionEmpleados panelGestionEmpleados = new PanelGestionEmpleados();
-        panelGestionEmpleados.setVisible(true);
-        panelGestionEmpleados.setLocationRelativeTo(null);
         this.dispose();
     }
 

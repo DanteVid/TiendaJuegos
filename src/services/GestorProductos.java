@@ -163,6 +163,69 @@ public class GestorProductos {
         }
     }
 
+    public Producto searchProducto(String codigoABuscar){
+        RandomAccessFile fileProducto = null;
+        codigoABuscar = setTamanioCod(codigoABuscar);
+
+        String estado = "";
+        try {
+            fileProducto = new RandomAccessFile(path, "rw");
+
+            while (true) {
+                String codigo = fileProducto.readUTF();
+                String nombre = fileProducto.readUTF();
+                double valorUnitario = fileProducto.readDouble();
+                int unidadesDisponibles = fileProducto.readInt();
+                estado = fileProducto.readUTF();
+                if (codigo.trim().equals(codigoABuscar.trim()) && estado.equals(Producto.ESTADO_ACTIVO)) {
+                    fileProducto.close();
+                    return new Producto(codigo, nombre, valorUnitario,unidadesDisponibles,estado);
+                }
+                if(fileProducto.getFilePointer()== fileProducto.length()){
+                    break;
+                }
+            }
+
+            fileProducto.close();
+            JOptionPane.showMessageDialog(null, "Producto no encontrado", "Error", JOptionPane.WARNING_MESSAGE);
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    public boolean comprobarDisponibilidad(int cantidad, String codigoAEditar){
+        RandomAccessFile fileProducto = null;
+
+        try {
+            fileProducto = new RandomAccessFile(path, "rw");
+            String codigoLeido = "";
+            int stockActual = 0;
+            while(true){
+                codigoLeido = fileProducto.readUTF();
+                fileProducto.readUTF();
+                fileProducto.readDouble();
+                stockActual = fileProducto.readInt();
+                String estado = fileProducto.readUTF();
+
+                if ((codigoLeido.trim().equals(codigoAEditar.trim()) && estado.equals(Producto.ESTADO_ACTIVO)) && (cantidad<=stockActual)) {
+                    fileProducto.close();
+                    return true;
+                }
+                if(fileProducto.getFilePointer()==fileProducto.length()){
+                    break;
+                }
+            }
+
+            fileProducto.close();
+            return false;
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void actualizarDatos(String codigoAEditar, String codigoNuevo, String nombreNuevo, double valorNuevo, int nuevoStock){
         RandomAccessFile fileProducto = null;
 

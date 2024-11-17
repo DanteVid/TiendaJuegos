@@ -227,20 +227,14 @@ public class PanelGestionEmpleados extends javax.swing.JFrame {
             double salario = (double) salarioValue;
             String rol = rolValue.toString();
 
-            FormularioEditarEmpleado formularioEditarEmpleado = new FormularioEditarEmpleado(id, nombre, salario, rol);
-            formularioEditarEmpleado.setVisible(true);
-            formularioEditarEmpleado.setLocationRelativeTo(null);
-            this.dispose();
+            FormularioEditarEmpleado formularioEditarEmpleado = new FormularioEditarEmpleado(id, nombre, salario, rol, this);
         } else {
             JOptionPane.showMessageDialog(null, "No ha seleccionado ningún empleado", "Advertencia", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
     private void registrarBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        FormularioAnadirEmpleado form = new FormularioAnadirEmpleado();
-        form.setVisible(true);
-        form.setLocationRelativeTo(null);
-        this.dispose();
+        FormularioAnadirEmpleado form = new FormularioAnadirEmpleado(this);
     }
 
     private void eliminarBtnActionPerformed(ActionEvent evt) {

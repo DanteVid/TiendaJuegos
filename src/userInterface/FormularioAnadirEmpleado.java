@@ -9,9 +9,14 @@ import world.Vendedor;
 import javax.swing.*;
 
 public class FormularioAnadirEmpleado extends javax.swing.JFrame {
+    PanelGestionEmpleados panelGestion;
 
-    public FormularioAnadirEmpleado() {
+    public FormularioAnadirEmpleado(PanelGestionEmpleados panel) {
         initComponents();
+
+        this.setVisible(true);
+        this.setLocationRelativeTo(null);
+        panelGestion = panel;
     }
 
     /**
@@ -88,7 +93,7 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
         jLabel8.setBounds(260, 150, 110, 19);
 
         buttonCancelar.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        buttonCancelar.setText("Cancelar");
+        buttonCancelar.setText("Volver");
         buttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelarActionPerformed(evt);
@@ -139,9 +144,6 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     private void buttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {
-        PanelGestionEmpleados panel = new PanelGestionEmpleados();
-        panel.setVisible(true);
-        panel.setLocationRelativeTo(null);
         this.dispose();
     }
 
@@ -157,6 +159,13 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
 
         gestor.addSeller(vendedor);
 
+        idField.setText("");
+        nameField.setText("");
+        passwordField.setText("");
+        salarioField.setText("");
+
+        panelGestion.limpiarDatos();
+        panelGestion.mostrarDatos();
     }
 
     private void buttonAnadirAdminActionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,42 +179,19 @@ public class FormularioAnadirEmpleado extends javax.swing.JFrame {
         Administrador admin = new Administrador(nuevoID, nuevoNombre, nuevoPassword, nuevoSalario, Empleado.ESTADO_ACTIVO);
 
         gestor.addAdmin(admin);
+
+        idField.setText("");
+        nameField.setText("");
+        passwordField.setText("");
+        salarioField.setText("");
+
+        panelGestion.limpiarDatos();
+        panelGestion.mostrarDatos();
     }
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormularioAnadirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormularioAnadirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormularioAnadirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormularioAnadirEmpleado.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FormularioAnadirEmpleado().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify                     
     private javax.swing.JButton buttonAnadirAdmin;

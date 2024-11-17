@@ -99,9 +99,6 @@ public class PanelAdmin extends javax.swing.JFrame {
         int confirmacion = JOptionPane.showConfirmDialog(null, "¿Está seguro de que desea cerrar sesión?", "Cerrar Sesión", JOptionPane.YES_NO_OPTION);
         if (confirmacion == JOptionPane.YES_OPTION) {
             PestanaLogin pestanaLogin = new PestanaLogin();
-            pestanaLogin.setVisible(true);
-            pestanaLogin.pack();
-            pestanaLogin.setLocationRelativeTo(null);
             this.dispose();
         }
     }
