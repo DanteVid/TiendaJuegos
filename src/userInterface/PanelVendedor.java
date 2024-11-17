@@ -1,5 +1,6 @@
 package userInterface;
 
+import userInterface.reembolsos.VentanaReembolsos;
 import userInterface.ventas.InterfazVentas;
 
 import javax.swing.*;
@@ -112,7 +113,8 @@ public class PanelVendedor extends javax.swing.JFrame {
     }
 
     private void refundBtnActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
+        VentanaReembolsos ventana = new VentanaReembolsos(loggedVendedor);
+        this.dispose();
     }
 
     /**
